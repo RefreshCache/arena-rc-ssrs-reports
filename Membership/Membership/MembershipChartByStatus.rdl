@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="ArenaDB">
+      <DataSourceReference>ArenaDB</DataSourceReference>
+      <rd:DataSourceID>62aec743-b68b-4b14-82eb-63beb8a0d580</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <BottomMargin>1in</BottomMargin>
+  <RightMargin>1in</RightMargin>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <Body>
+    <ReportItems>
+      <Chart Name="chart1">
+        <Legend>
+          <Visible>true</Visible>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <FontFamily>Tahoma</FontFamily>
+          </Style>
+          <Position>LeftTop</Position>
+        </Legend>
+        <Subtype>Plain</Subtype>
+        <Title>
+          <Caption>Membership By Status</Caption>
+          <Style>
+            <FontFamily>Tahoma</FontFamily>
+            <FontWeight>700</FontWeight>
+            <FontSize>12pt</FontSize>
+          </Style>
+        </Title>
+        <CategoryAxis>
+          <Axis>
+            <Title />
+            <MajorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Visible>true</Visible>
+          </Axis>
+        </CategoryAxis>
+        <PointWidth>0</PointWidth>
+        <ThreeDProperties>
+          <Enabled>true</Enabled>
+          <Rotation>55</Rotation>
+          <Inclination>30</Inclination>
+          <Shading>Simple</Shading>
+          <WallThickness>50</WallThickness>
+        </ThreeDProperties>
+        <DataSetName>PersonActive</DataSetName>
+        <PlotArea>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <BackgroundColor>DarkGray</BackgroundColor>
+            <BackgroundGradientType>HorizontalCenter</BackgroundGradientType>
+          </Style>
+        </PlotArea>
+        <ValueAxis>
+          <Axis>
+            <Title />
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+              </Style>
+            </MinorGridLines>
+            <MajorTickMarks>Outside</MajorTickMarks>
+            <Min>0</Min>
+            <Margin>true</Margin>
+            <Visible>true</Visible>
+            <Scalar>true</Scalar>
+          </Axis>
+        </ValueAxis>
+        <Type>Doughnut</Type>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="chart1_CategoryGroup1">
+                <GroupExpressions>
+                  <GroupExpression>=IIF(IsNothing(Fields!status.Value), "Unknown", Fields!status.Value)</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label>=IIF(IsNothing(Fields!status.Value), "Unknown", Fields!status.Value)</Label>
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <Palette>Default</Palette>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Count(Fields!person_id.Value)</Value>
+                  </DataValue>
+                </DataValues>
+                <DataLabel>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontWeight>700</FontWeight>
+                    <Format>#,#</Format>
+                  </Style>
+                  <Value>=Count(Fields!person_id.Value)</Value>
+                  <Position>Right</Position>
+                  <Visible>true</Visible>
+                </DataLabel>
+                <Marker>
+                  <Size>6pt</Size>
+                </Marker>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontWeight>700</FontWeight>
+          <FontSize>12pt</FontSize>
+          <BackgroundColor>White</BackgroundColor>
+        </Style>
+      </Chart>
+    </ReportItems>
+    <Height>6in</Height>
+  </Body>
+  <rd:ReportID>17ce8b9e-f29e-462d-9c46-8f99d208469c</rd:ReportID>
+  <LeftMargin>1in</LeftMargin>
+  <DataSets>
+    <DataSet Name="PersonActive">
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT *
+FROM core_v_personActive</CommandText>
+        <DataSourceName>ArenaDB</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="person_id">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>person_id</DataField>
+        </Field>
+        <Field Name="family_id">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>family_id</DataField>
+        </Field>
+        <Field Name="family_role_luid">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>family_role_luid</DataField>
+        </Field>
+        <Field Name="family_role">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>family_role</DataField>
+        </Field>
+        <Field Name="name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>name</DataField>
+        </Field>
+        <Field Name="nick_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>nick_name</DataField>
+        </Field>
+        <Field Name="first_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>first_name</DataField>
+        </Field>
+        <Field Name="last_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>last_name</DataField>
+        </Field>
+        <Field Name="person_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>person_name</DataField>
+        </Field>
+        <Field Name="birth_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>birth_date</DataField>
+        </Field>
+        <Field Name="anniversary_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>anniversary_date</DataField>
+        </Field>
+        <Field Name="address_id">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>address_id</DataField>
+        </Field>
+        <Field Name="Address">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Address</DataField>
+        </Field>
+        <Field Name="city">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>city</DataField>
+        </Field>
+        <Field Name="state">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>state</DataField>
+        </Field>
+        <Field Name="postal_code">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>postal_code</DataField>
+        </Field>
+        <Field Name="status">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>status</DataField>
+        </Field>
+        <Field Name="record_status">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>record_status</DataField>
+        </Field>
+        <Field Name="gender">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>gender</DataField>
+        </Field>
+        <Field Name="marital_status">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>marital_status</DataField>
+        </Field>
+        <Field Name="business_phone">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>business_phone</DataField>
+        </Field>
+        <Field Name="home_phone">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>home_phone</DataField>
+        </Field>
+        <Field Name="cell_phone">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>cell_phone</DataField>
+        </Field>
+        <Field Name="small_group">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>small_group</DataField>
+        </Field>
+        <Field Name="class_level">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>class_level</DataField>
+        </Field>
+        <Field Name="blic_serving">
+          <rd:TypeName>System.Boolean</rd:TypeName>
+          <DataField>blic_serving</DataField>
+        </Field>
+        <Field Name="email">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>email</DataField>
+        </Field>
+        <Field Name="AddressBlock">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>AddressBlock</DataField>
+        </Field>
+        <Field Name="area_id">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>area_id</DataField>
+        </Field>
+        <Field Name="photo_guid">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>photo_guid</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <Width>8in</Width>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+</Report>

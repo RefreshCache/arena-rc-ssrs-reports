@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="ArenaDB">
+      <DataSourceReference>ArenaDB</DataSourceReference>
+      <rd:DataSourceID>92d2d932-568e-47ec-a071-82bbb8af1be8</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <BottomMargin>0.5in</BottomMargin>
+  <RightMargin>0.5in</RightMargin>
+  <PageWidth>11in</PageWidth>
+  <ReportParameters>
+    <ReportParameter Name="GroupOrder">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Member Status</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Group By</Prompt>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>Member Status</Value>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>Record Status</Value>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>City</Value>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>State</Value>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>11in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <Body>
+    <ReportItems>
+      <Textbox Name="spacer">
+	<CanGrow>false</CanGrow>
+	<CanShrink>false</CanShrink>
+	<Height>0.01in</Height>
+	<RepeatWith>table1</RepeatWith>
+	<Value />
+      </Textbox>
+      <Table Name="table1">
+        <Footer>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ColSpan>3</ColSpan>
+                  <ReportItems>
+                    <Textbox Name="textbox6">
+                      <rd:DefaultName>textbox6</rd:DefaultName>
+                      <ZIndex>11</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox9">
+                      <rd:DefaultName>textbox9</rd:DefaultName>
+                      <ZIndex>10</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox11">
+                      <rd:DefaultName>textbox11</rd:DefaultName>
+                      <ZIndex>9</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox13">
+                      <rd:DefaultName>textbox13</rd:DefaultName>
+                      <ZIndex>8</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox15">
+                      <rd:DefaultName>textbox15</rd:DefaultName>
+                      <ZIndex>7</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.25in</Height>
+            </TableRow>
+          </TableRows>
+        </Footer>
+        <DataSetName>MembershipList</DataSetName>
+        <TableGroups>
+          <TableGroup>
+            <Header>
+              <TableRows>
+                <TableRow>
+                  <TableCells>
+                    <TableCell>
+                      <ColSpan>3</ColSpan>
+                      <ReportItems>
+                        <Textbox Name="textbox14">
+                          <rd:DefaultName>textbox14</rd:DefaultName>
+                          <ZIndex>16</ZIndex>
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <FontFamily>Tahoma</FontFamily>
+                            <FontWeight>700</FontWeight>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>= IIF(Parameters!GroupOrder.Value = "Member Status",IIF(Fields!status.Value = "","[Empty]",Fields!status.Value),
+  IIF(Parameters!GroupOrder.Value = "Record Status",IIF(Fields!record_status.Value = "","[Empty]",Fields!record_status.Value),
+  IIF(Parameters!GroupOrder.Value = "City", IIF(Fields!city.Value = "","[Empty]",Fields!city.Value),
+  IIF(Fields!state.Value = "","[Empty]",Fields!state.Value))))</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox18">
+                          <rd:DefaultName>textbox18</rd:DefaultName>
+                          <ZIndex>15</ZIndex>
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox19">
+                          <rd:DefaultName>textbox19</rd:DefaultName>
+                          <ZIndex>14</ZIndex>
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox20">
+                          <rd:DefaultName>textbox20</rd:DefaultName>
+                          <ZIndex>13</ZIndex>
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox21">
+                          <rd:DefaultName>textbox21</rd:DefaultName>
+                          <ZIndex>12</ZIndex>
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                  <Height>0.25in</Height>
+                </TableRow>
+              </TableRows>
+            </Header>
+            <Sorting>
+              <SortBy>
+                <SortExpression>= IIF(Parameters!GroupOrder.Value = "Member Status",Fields!status.Value,
+  IIF(Parameters!GroupOrder.Value = "Record Status", Fields!record_status.Value,
+  IIF(Parameters!GroupOrder.Value = "City", Fields!city.Value,
+  fields!state.Value)))</SortExpression>
+                <Direction>Ascending</Direction>
+              </SortBy>
+            </Sorting>
+            <Grouping Name="table1_Group1">
+              <GroupExpressions>
+                <GroupExpression>= IIF(Parameters!GroupOrder.Value = "Member Status",Fields!status.Value,
+  IIF(Parameters!GroupOrder.Value = "Record Status", Fields!record_status.Value,
+  IIF(Parameters!GroupOrder.Value = "City", Fields!city.Value,
+  fields!state.Value)))</GroupExpression>
+              </GroupExpressions>
+            </Grouping>
+          </TableGroup>
+        </TableGroups>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="person_id">
+                      <rd:DefaultName>person_id</rd:DefaultName>
+                      <ZIndex>6</ZIndex>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <BackgroundColor>= iif(RowNumber(Nothing) Mod 2, "White", "WhiteSmoke")</BackgroundColor>
+                        <Color>= iif(RowNumber(Nothing) Mod 2, "White", "WhiteSmoke")</Color>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <Value>=Fields!person_id.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Name">
+                      <ZIndex>5</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <BackgroundColor>= iif(RowNumber(Nothing) Mod 2, "White", "WhiteSmoke")</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!name.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Address">
+                      <rd:DefaultName>Address</rd:DefaultName>
+                      <ZIndex>4</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <BackgroundColor>= iif(RowNumber(Nothing) Mod 2, "White", "WhiteSmoke")</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Address.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="City">
+                      <ZIndex>3</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <BackgroundColor>= iif(RowNumber(Nothing) Mod 2, "White", "WhiteSmoke")</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!city.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="State">
+                      <ZIndex>2</ZIndex>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <BackgroundColor>= iif(RowNumber(Nothing) Mod 2, "White", "WhiteSmoke")</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!state.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Postal_Code">
+                      <ZIndex>1</ZIndex>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <BackgroundColor>= iif(RowNumber(Nothing) Mod 2, "White", "WhiteSmoke")</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!postal_code.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Email">
+                      <Action>
+                        <Hyperlink>="mailto:" &amp; Fields!email.Value</Hyperlink>
+                      </Action>
+                      <Style>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <BackgroundColor>= iif(RowNumber(Nothing) Mod 2, "White", "WhiteSmoke")</BackgroundColor>
+                        <Color>Blue</Color>
+                        <TextDecoration>Underline</TextDecoration>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!email.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.25in</Height>
+            </TableRow>
+          </TableRows>
+          <Sorting>
+            <SortBy>
+              <SortExpression>=Fields!name.Value</SortExpression>
+              <Direction>Ascending</Direction>
+            </SortBy>
+          </Sorting>
+        </Details>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>8pt</FontSize>
+        </Style>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox1">
+                      <rd:DefaultName>textbox1</rd:DefaultName>
+                      <ZIndex>23</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Bottom>Ridge</Bottom>
+                          <Top>Ridge</Top>
+                        </BorderStyle>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundImage>
+                          <Value>datagrid_header_background</Value>
+                          <Source>Embedded</Source>
+                          <BackgroundRepeat>RepeatX</BackgroundRepeat>
+                        </BackgroundImage>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Bottom</VerticalAlign>
+                        <BorderColor>
+                          <Bottom>DarkGray</Bottom>
+                          <Top>DarkGray</Top>
+                        </BorderColor>
+                        <BackgroundColor>WhiteSmoke</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value />
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox2">
+                      <rd:DefaultName>textbox2</rd:DefaultName>
+                      <ZIndex>22</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Bottom>Ridge</Bottom>
+                          <Top>Ridge</Top>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundImage>
+                          <Value>datagrid_header_background</Value>
+                          <Source>Embedded</Source>
+                          <BackgroundRepeat>RepeatX</BackgroundRepeat>
+                        </BackgroundImage>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Bottom</VerticalAlign>
+                        <BorderColor>
+                          <Bottom>DarkGray</Bottom>
+                          <Top>DarkGray</Top>
+                        </BorderColor>
+                        <BackgroundColor>WhiteSmoke</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Name</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox3">
+                      <rd:DefaultName>textbox3</rd:DefaultName>
+                      <ZIndex>21</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Bottom>Ridge</Bottom>
+                          <Top>Ridge</Top>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundImage>
+                          <Value>datagrid_header_background</Value>
+                          <Source>Embedded</Source>
+                          <BackgroundRepeat>RepeatX</BackgroundRepeat>
+                        </BackgroundImage>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Bottom</VerticalAlign>
+                        <BorderColor>
+                          <Bottom>DarkGray</Bottom>
+                          <Top>DarkGray</Top>
+                        </BorderColor>
+                        <BackgroundColor>WhiteSmoke</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Address</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox4">
+                      <rd:DefaultName>textbox4</rd:DefaultName>
+                      <ZIndex>20</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Bottom>Ridge</Bottom>
+                          <Top>Ridge</Top>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundImage>
+                          <Value>datagrid_header_background</Value>
+                          <Source>Embedded</Source>
+                          <BackgroundRepeat>RepeatX</BackgroundRepeat>
+                        </BackgroundImage>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Bottom</VerticalAlign>
+                        <BorderColor>
+                          <Bottom>DarkGray</Bottom>
+                          <Top>DarkGray</Top>
+                        </BorderColor>
+                        <BackgroundColor>WhiteSmoke</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>City</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox5">
+                      <rd:DefaultName>textbox5</rd:DefaultName>
+                      <ZIndex>19</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Bottom>Ridge</Bottom>
+                          <Top>Ridge</Top>
+                        </BorderStyle>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundImage>
+                          <Value>datagrid_header_background</Value>
+                          <Source>Embedded</Source>
+                          <BackgroundRepeat>RepeatX</BackgroundRepeat>
+                        </BackgroundImage>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Bottom</VerticalAlign>
+                        <BorderColor>
+                          <Bottom>DarkGray</Bottom>
+                          <Top>DarkGray</Top>
+                        </BorderColor>
+                        <BackgroundColor>WhiteSmoke</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>State</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox10">
+                      <rd:DefaultName>textbox10</rd:DefaultName>
+                      <ZIndex>18</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Bottom>Ridge</Bottom>
+                          <Top>Ridge</Top>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundImage>
+                          <Value>datagrid_header_background</Value>
+                          <Source>Embedded</Source>
+                          <BackgroundRepeat>RepeatX</BackgroundRepeat>
+                        </BackgroundImage>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Bottom</VerticalAlign>
+                        <BorderColor>
+                          <Bottom>DarkGray</Bottom>
+                          <Top>DarkGray</Top>
+                        </BorderColor>
+                        <BackgroundColor>WhiteSmoke</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>Postal Code</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox12">
+                      <rd:DefaultName>textbox12</rd:DefaultName>
+                      <ZIndex>17</ZIndex>
+                      <Style>
+                        <BorderStyle>
+                          <Bottom>Ridge</Bottom>
+                          <Top>Ridge</Top>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingBottom>2pt</PaddingBottom>
+                        <BackgroundImage>
+                          <Value>datagrid_header_background</Value>
+                          <Source>Embedded</Source>
+                          <BackgroundRepeat>RepeatX</BackgroundRepeat>
+                        </BackgroundImage>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontWeight>700</FontWeight>
+                        <FontSize>8pt</FontSize>
+                        <VerticalAlign>Bottom</VerticalAlign>
+                        <BorderColor>
+                          <Bottom>DarkGray</Bottom>
+                          <Top>DarkGray</Top>
+                        </BorderColor>
+                        <BackgroundColor>WhiteSmoke</BackgroundColor>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>E-mail</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.25in</Height>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <TableColumns>
+          <TableColumn>
+            <Width>0.125in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.625in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>2.875in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.875in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.5in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.875in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>2.125in</Width>
+          </TableColumn>
+        </TableColumns>
+        <Height>1in</Height>
+      </Table>
+    </ReportItems>
+    <Height>1.25in</Height>
+  </Body>
+  <rd:ReportID>88bc4785-6b1d-4a27-a8e1-6148271912b6</rd:ReportID>
+  <LeftMargin>0.5in</LeftMargin>
+  <EmbeddedImages>
+    <EmbeddedImage Name="datagrid_header_background">
+      <ImageData>/9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAUQAA/+4ADkFkb2JlAGTAAAAAAf/bAIQAAgICAgICAgICAgMCAgIDBAMCAgMEBAQEBAQEBAYEBQUFBQQGBgcHBwcHBgkJCgoJCQwMDAwMDAwMDAwMDAwMDAECAwMFBAUJBgYJDQoICg0PDg4ODg8PDAwMDAwPDwwMDAwMDA8MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM/8AAEQgAFQAMAwERAAIRAQMRAf/EAFgAAQADAAAAAAAAAAAAAAAAAAAGBwkBAQEBAQAAAAAAAAAAAAAAAAACAQMQAAEDBQAAAAAAAAAAAAAAAADwARFRYhQkFREBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A1WwHoS7mA9ALC5doScu0CYa6g1JrqAP/2Q==</ImageData>
+      <MIMEType>image/jpeg</MIMEType>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <DataSets>
+    <DataSet Name="MembershipList">
+      <Query>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <CommandText>SELECT *
+FROM dbo.core_v_personList</CommandText>
+        <DataSourceName>ArenaDB</DataSourceName>
+      </Query>
+      <Fields>
+        <Field Name="person_id">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>person_id</DataField>
+        </Field>
+        <Field Name="family_id">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>family_id</DataField>
+        </Field>
+        <Field Name="family_role_luid">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>family_role_luid</DataField>
+        </Field>
+        <Field Name="family_role">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>family_role</DataField>
+        </Field>
+        <Field Name="name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>name</DataField>
+        </Field>
+        <Field Name="nick_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>nick_name</DataField>
+        </Field>
+        <Field Name="first_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>first_name</DataField>
+        </Field>
+        <Field Name="last_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>last_name</DataField>
+        </Field>
+        <Field Name="person_name">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>person_name</DataField>
+        </Field>
+        <Field Name="birth_date">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>birth_date</DataField>
+        </Field>
+        <Field Name="address_id">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>address_id</DataField>
+        </Field>
+        <Field Name="Address">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>Address</DataField>
+        </Field>
+        <Field Name="city">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>city</DataField>
+        </Field>
+        <Field Name="state">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>state</DataField>
+        </Field>
+        <Field Name="postal_code">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>postal_code</DataField>
+        </Field>
+        <Field Name="Distance">
+          <rd:TypeName>System.Double</rd:TypeName>
+          <DataField>Distance</DataField>
+        </Field>
+        <Field Name="status">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>status</DataField>
+        </Field>
+        <Field Name="record_status">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>record_status</DataField>
+        </Field>
+        <Field Name="gender">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>gender</DataField>
+        </Field>
+        <Field Name="marital_status">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>marital_status</DataField>
+        </Field>
+        <Field Name="business_phone">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>business_phone</DataField>
+        </Field>
+        <Field Name="home_phone">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>home_phone</DataField>
+        </Field>
+        <Field Name="cell_phone">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>cell_phone</DataField>
+        </Field>
+        <Field Name="volunteer_application">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>volunteer_application</DataField>
+        </Field>
+        <Field Name="background_check">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>background_check</DataField>
+        </Field>
+        <Field Name="nametag_issued">
+          <rd:TypeName>System.DateTime</rd:TypeName>
+          <DataField>nametag_issued</DataField>
+        </Field>
+        <Field Name="small_group">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>small_group</DataField>
+        </Field>
+        <Field Name="class_level">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>class_level</DataField>
+        </Field>
+        <Field Name="blic_serving">
+          <rd:TypeName>System.Boolean</rd:TypeName>
+          <DataField>blic_serving</DataField>
+        </Field>
+        <Field Name="email">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>email</DataField>
+        </Field>
+        <Field Name="AddressBlock">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>AddressBlock</DataField>
+        </Field>
+        <Field Name="area_id">
+          <rd:TypeName>System.Int32</rd:TypeName>
+          <DataField>area_id</DataField>
+        </Field>
+        <Field Name="photo_guid">
+          <rd:TypeName>System.String</rd:TypeName>
+          <DataField>photo_guid</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <Author>Mac McGreger</Author>
+  <Code />
+  <Width>10in</Width>
+  <InteractiveHeight>8.5in</InteractiveHeight>
+  <Description> Lists Members with multiple grouping options</Description>
+  <Language>en-US</Language>
+  <PageFooter>
+    <ReportItems>
+      <Line Name="line1">
+        <ZIndex>5</ZIndex>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <BorderColor>
+            <Default>DarkGray</Default>
+          </BorderColor>
+        </Style>
+        <Height>0in</Height>
+      </Line>
+      <Textbox Name="txtFooter_PageNumber">
+        <Left>17.77778cm</Left>
+        <Top>0.95238cm</Top>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.63492cm</Height>
+        <Value>="Page " + Globals!PageNumber.ToString() + " of " + Globals!TotalPages.ToString()</Value>
+      </Textbox>
+      <Textbox Name="txtFooter_slogan">
+        <Left>2.85714cm</Left>
+        <Top>0.95238cm</Top>
+        <ZIndex>3</ZIndex>
+        <Width>6.45cm</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.63492cm</Height>
+        <Value>"The Power of Community"</Value>
+      </Textbox>
+      <Textbox Name="txtFooter_ArenaURL">
+        <Left>0.31746cm</Left>
+        <Top>0.95238cm</Top>
+        <ZIndex>2</ZIndex>
+        <Action>
+          <Hyperlink>http://www.arenachms.com/</Hyperlink>
+        </Action>
+        <Width>2.3246cm</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>8pt</FontSize>
+          <Color>Blue</Color>
+          <TextDecoration>Underline</TextDecoration>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.63492cm</Height>
+        <Value>arenachms.com</Value>
+      </Textbox>
+      <Textbox Name="txtFooter_TimeTaken">
+        <Left>0.31746cm</Left>
+        <Top>0.31746cm</Top>
+        <ZIndex>1</ZIndex>
+        <Width>9.27381cm</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.63492cm</Height>
+        <Value>="Execution Time: " +
+IIf(System.DateTime.Now.Subtract(Globals!ExecutionTime).TotalSeconds &lt; 1, "0 seconds", 
+(
+IIf(System.DateTime.Now.Subtract(Globals!ExecutionTime).Hours &gt; 0, System.DateTime.Now.Subtract(Globals!ExecutionTime).Hours &amp; " hour(s), ", "") +
+IIf(System.DateTime.Now.Subtract(Globals!ExecutionTime).Minutes &gt; 0, System.DateTime.Now.Subtract(Globals!ExecutionTime).Minutes &amp; " minute(s), ", "") +
+IIf(System.DateTime.Now.Subtract(Globals!ExecutionTime).Seconds &gt; 0, System.DateTime.Now.Subtract(Globals!ExecutionTime).Seconds &amp; " second(s)", ""))
+)</Value>
+      </Textbox>
+      <Textbox Name="txtFooter_PrintBy">
+        <Left>13.33333cm</Left>
+        <Top>0.31746cm</Top>
+        <Style>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingBottom>2pt</PaddingBottom>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>8pt</FontSize>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Height>0.63492cm</Height>
+        <Value>=" Printed by " + User!UserID + " on " + Globals!ExecutionTime.ToString()</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>0.82688in</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+  </PageFooter>
+  <TopMargin>0.5in</TopMargin>
+  <PageHeight>8.5in</PageHeight>
+</Report>
