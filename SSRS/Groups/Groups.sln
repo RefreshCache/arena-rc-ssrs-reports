@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Groups", "Groups\Groups.rptproj", "{F70BB1DB-C7DE-41FA-8893-F2CF4FF07736}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F70BB1DB-C7DE-41FA-8893-F2CF4FF07736}.Debug|Default.ActiveCfg = Debug
+		{F70BB1DB-C7DE-41FA-8893-F2CF4FF07736}.Debug|Default.Build.0 = DebugLocal
+		{F70BB1DB-C7DE-41FA-8893-F2CF4FF07736}.Debug|Default.Deploy.0 = DebugLocal
+		{F70BB1DB-C7DE-41FA-8893-F2CF4FF07736}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{F70BB1DB-C7DE-41FA-8893-F2CF4FF07736}.DebugLocal|Default.Build.0 = DebugLocal
+		{F70BB1DB-C7DE-41FA-8893-F2CF4FF07736}.Release|Default.ActiveCfg = Release
+		{F70BB1DB-C7DE-41FA-8893-F2CF4FF07736}.Release|Default.Build.0 = Release
+		{F70BB1DB-C7DE-41FA-8893-F2CF4FF07736}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Rectangle Name="Rectangle1">
+        <ReportItems>
+          <Textbox Name="security_code">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Iif(First(Fields!type.Value, "Info") = 2, "VOL", First(Fields!security_code.Value, "Info"))</Value>
+                    <Style>
+                      <FontSize>16pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>White</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>security_code</rd:DefaultName>
+            <Top>0.01389in</Top>
+            <Left>0.02778in</Left>
+            <Height>0.30554in</Height>
+            <Width>0.57418in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>1.7394in</Top>
+        <Left>3.24655in</Left>
+        <Height>0.31943in</Height>
+        <Width>0.625in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BackgroundColor>Black</BackgroundColor>
+        </Style>
+      </Rectangle>
+      <Tablix Name="table2">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>3.74655in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>4.38252mm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox4">
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!varchar_value.Value</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox4</rd:DefaultName>
+                      <Style>
+                        <BackgroundColor>Black</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="table2_Details_Group">
+                <DataElementName>Detail</DataElementName>
+              </Group>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+              <DataElementName>Detail_Collection</DataElementName>
+              <DataElementOutput>Output</DataElementOutput>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Attributes</DataSetName>
+        <Filters>
+          <Filter>
+            <FilterExpression>=Fields!attribute_name.Value</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>Allergies</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+        <Top>1.38876in</Top>
+        <Left>0.125in</Left>
+        <Height>4.38252mm</Height>
+        <Width>3.74655in</Width>
+        <ZIndex>1</ZIndex>
+        <Style />
+      </Tablix>
+      <Textbox Name="first_name">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Iif(First(Fields!nick_name.Value, "Info") is nothing, First(Fields!first_name.Value, "Info"), First(Fields!nick_name.Value, "Info"))</Value>
+                <Style>
+                  <FontSize>22pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>first_name</rd:DefaultName>
+        <Top>0.19444in</Top>
+        <Left>0.125in</Left>
+        <Height>0.31944in</Height>
+        <Width>2.14586in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <VerticalAlign>Top</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="last_name">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!last_name.Value, "Info")</Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>SemiBold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>last_name</rd:DefaultName>
+        <Top>0.52778in</Top>
+        <Left>0.125in</Left>
+        <Height>0.25in</Height>
+        <Width>2.14586in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <VerticalAlign>Bottom</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=WeekdayName(Weekday(Now()),False)+", "+Month(Now()).ToString+"/"+Day(Now()).ToString</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Top>0.05556in</Top>
+        <Left>0.125in</Left>
+        <Height>0.125in</Height>
+        <Width>3.74655in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <VerticalAlign>Bottom</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Line Name="line3">
+        <Top>1.11806in</Top>
+        <Left>0.125in</Left>
+        <Height>0in</Height>
+        <Width>3.74655in</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+            <Width>2pt</Width>
+          </Border>
+        </Style>
+      </Line>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>3.74655in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.22487in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=String.Format("{0:h:mm tt}", Fields!occurrence_start_time.Value) &amp; " - " &amp; Fields!occurrence_type.Value &amp; " - " &amp; Fields!location_name.Value</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details" />
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Info</DataSetName>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!occurrence_start_time.Value</Value>
+          </SortExpression>
+        </SortExpressions>
+        <Top>1.15in</Top>
+        <Left>0.125in</Left>
+        <Height>0.22487in</Height>
+        <Width>3.74655in</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Tablix Name="table3">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>3.74655in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>4.17093mm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="textbox5">
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!varchar_value.Value</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>textbox4</rd:DefaultName>
+                      <Style>
+                        <BackgroundColor>Black</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="table2_Details_Group2">
+                <DataElementName>Detail</DataElementName>
+              </Group>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+              <DataElementName>Detail_Collection</DataElementName>
+              <DataElementOutput>Output</DataElementOutput>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Attributes</DataSetName>
+        <Filters>
+          <Filter>
+            <FilterExpression>=Fields!attribute_name.Value</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>Medical Situation</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+        <Top>1.5613in</Top>
+        <Left>0.125in</Left>
+        <Height>4.17093mm</Height>
+        <Width>3.74655in</Width>
+        <ZIndex>7</ZIndex>
+        <Style />
+      </Tablix>
+      <Image Name="Image3">
+        <Source>Embedded</Source>
+        <Value>biblelandlogo</Value>
+        <Top>0.17083in</Top>
+        <Left>2.3403in</Left>
+        <Height>0.91667in</Height>
+        <Width>1.53125in</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+    </ReportItems>
+    <Height>2.12in</Height>
+    <Style />
+  </Body>
+  <Width>4in</Width>
+  <Page>
+    <PageHeight>2.12in</PageHeight>
+    <PageWidth>4in</PageWidth>
+    <InteractiveHeight>2.12in</InteractiveHeight>
+    <InteractiveWidth>4in</InteractiveWidth>
+    <ColumnSpacing>0in</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ArenaDB">
+      <DataSourceReference>ArenaDB</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>dc84be98-191d-4d0b-9bce-15197d8a068a</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Info">
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@OccurrenceAttendanceID">
+            <Value>=Parameters!OccurrenceAttendanceID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>cust_SECC_sp_get_occurrence_attendance_labels</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="nick_name">
+          <DataField>nick_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="first_name">
+          <DataField>first_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="middle_name">
+          <DataField>middle_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="last_name">
+          <DataField>last_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="full_name_distinguished">
+          <DataField>full_name_distinguished</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="full_name_nickname">
+          <DataField>full_name_nickname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="birth_date">
+          <DataField>birth_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="gender">
+          <DataField>gender</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="person_notes">
+          <DataField>person_notes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="anniversary_date">
+          <DataField>anniversary_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="membership_status">
+          <DataField>membership_status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="medical_information">
+          <DataField>medical_information</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="photo">
+          <DataField>photo</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="photo_mime_type">
+          <DataField>photo_mime_type</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="security_code">
+          <DataField>security_code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="child_barcode">
+          <DataField>child_barcode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="receipt_barcode">
+          <DataField>receipt_barcode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="check_in_time">
+          <DataField>check_in_time</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="check_out_time">
+          <DataField>check_out_time</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="pager">
+          <DataField>pager</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="attendance_notes">
+          <DataField>attendance_notes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="occurrence_name">
+          <DataField>occurrence_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="occurrence_description">
+          <DataField>occurrence_description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="occurrence_start_time">
+          <DataField>occurrence_start_time</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="occurrence_end_time">
+          <DataField>occurrence_end_time</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="check_in_start">
+          <DataField>check_in_start</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="check_in_end">
+          <DataField>check_in_end</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="membership_required">
+          <DataField>membership_required</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="occurrence_type">
+          <DataField>occurrence_type</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="min_age">
+          <DataField>min_age</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="max_age">
+          <DataField>max_age</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="full_location_name">
+          <DataField>full_location_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="location_id">
+          <DataField>location_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="location_name">
+          <DataField>location_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="building_name">
+          <DataField>building_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tag_name">
+          <DataField>tag_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tag_desc">
+          <DataField>tag_desc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tag_notes">
+          <DataField>tag_notes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="occurrence_attendance_id">
+          <DataField>occurrence_attendance_id</DataField>
+          <rd:TypeName>System.Integer</rd:TypeName>
+        </Field>
+        <Field Name="type">
+          <DataField>type</DataField>
+          <rd:TypeName>System.Integer</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Attributes">
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@OccurrenceAttendanceID">
+            <Value>=Parameters!OccurrenceAttendanceID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@AttributeGroupName">
+            <Value>=Parameters!AttributeGroupName.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>core_sp_get_occurrence_attendance_label_attributes</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="attribute_name">
+          <DataField>attribute_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="attribute_name_first_letter">
+          <DataField>attribute_name_first_letter</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="person_id">
+          <DataField>person_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="attribute_id">
+          <DataField>attribute_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="int_value">
+          <DataField>int_value</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="varchar_value">
+          <DataField>varchar_value</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="datetime_value">
+          <DataField>datetime_value</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="decimal_value">
+          <DataField>decimal_value</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="OccurrenceAttendanceID">
+      <DataType>Integer</DataType>
+      <Prompt>OccurrenceAttendanceID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AttributeGroupName">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Check-In</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AttributeGroupName</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <EmbeddedImages>
+    <EmbeddedImage Name="biblelandlogo">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>1de8a3e2-7b7a-4c12-a6f1-a46c8e5c421e</rd:ReportID>
+</Report>

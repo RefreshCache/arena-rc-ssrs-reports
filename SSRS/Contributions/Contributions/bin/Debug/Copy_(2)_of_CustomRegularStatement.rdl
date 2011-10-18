@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="ArenaDB">
+      <rd:DataSourceID>691a4bbb-9ce6-4b75-b6dd-e2b6a91edb9a</rd:DataSourceID>
+      <DataSourceReference>ArenaDB</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <Description>Contributions, Funds, &amp; People</Description>
+  <ReportParameters>
+    <ReportParameter Name="FromDate">
+      <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>1/1/2007</Value>
+        </Values>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>From Date:</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ToDate">
+      <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>11/11/2009</Value>
+        </Values>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>To Date:</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="OrgId">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>1</Value>
+        </Values>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>OrgId</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="givingUnitId">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>ContributionFunds</DataSetName>
+          <ValueField>giving_unit_id</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>ContributionFunds</DataSetName>
+          <ValueField>giving_unit_id</ValueField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:GridSpacing>0.0625in</rd:GridSpacing>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>0.5in</RightMargin>
+  <LeftMargin>0.5in</LeftMargin>
+  <PageHeader>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <Height>0.5in</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageHeader>
+  <BottomMargin>0.5in</BottomMargin>
+  <rd:ReportID>4535d881-4a67-4740-97ef-26c8ecf3391b</rd:ReportID>
+  <DataSets>
+    <DataSet Name="ContributionFunds">
+      <Fields>
+        <Field Name="contribution_id">
+          <DataField>contribution_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="contribution_date">
+          <DataField>contribution_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="person_id">
+          <DataField>person_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="batch_id">
+          <DataField>batch_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="currency_amount">
+          <DataField>currency_amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="amount">
+          <DataField>amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="non_cash">
+          <DataField>non_cash</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="organization_id">
+          <DataField>organization_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="fund_name">
+          <DataField>fund_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fund_description">
+          <DataField>fund_description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="online_name">
+          <DataField>online_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="active">
+          <DataField>active</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="fund_id">
+          <DataField>fund_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="tax_deductible">
+          <DataField>tax_deductible</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="first_name">
+          <DataField>first_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="last_name">
+          <DataField>last_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="street_address_1">
+          <DataField>street_address_1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="street_address_2">
+          <DataField>street_address_2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="city">
+          <DataField>city</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="state">
+          <DataField>state</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="postal_code">
+          <DataField>postal_code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="giving_unit_id">
+          <DataField>giving_unit_id</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="envelope_number">
+          <DataField>envelope_number</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <CommandText>SELECT     C.contribution_id, C.contribution_date, C.person_id, C.batch_id, C.currency_amount, CF.amount, CF.non_cash, F.organization_id, F.fund_name, 
+                      F.fund_description, F.online_name, F.active, F.fund_id, F.tax_deductible, PV.first_name, PV.last_name, PV.street_address_1, PV.street_address_2, 
+                      PV.city, PV.state, PV.postal_code, P.giving_unit_id, P.envelope_number
+FROM         ctrb_contribution AS C INNER JOIN
+                      ctrb_contribution_fund AS CF ON C.contribution_id = CF.contribution_id INNER JOIN
+                      ctrb_fund AS F ON CF.fund_id = F.fund_id INNER JOIN
+                      core_v_person_basic AS PV ON dbo.ctrb_funct_givingHead(C.person_id) = PV.person_id INNER JOIN
+                      core_person AS P ON PV.person_id = P.person_id
+WHERE     (C.contribution_date &gt;= @FromDate) AND (C.contribution_date &lt;= @ToDate)
+ORDER BY P.giving_unit_id</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@FromDate">
+            <Value>=Parameters!FromDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ToDate">
+            <Value>=Parameters!ToDate.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+    <DataSet Name="Organization">
+      <Fields>
+        <Field Name="city">
+          <DataField>city</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="state">
+          <DataField>state</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="postal_code">
+          <DataField>postal_code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="street_address_2">
+          <DataField>street_address_2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="street_address_1">
+          <DataField>street_address_1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="organization_name">
+          <DataField>organization_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="organization_url">
+          <DataField>organization_url</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <CommandText>SELECT     core_address.city, core_address.state, core_address.postal_code, core_address.street_address_2, core_address.street_address_1, 
+                      orgn_organization.organization_name, orgn_organization.organization_url
+FROM         orgn_organization INNER JOIN
+                      core_address ON orgn_organization.address_id = core_address.address_id
+WHERE     (orgn_organization.organization_id = @OrgId)</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@OrgId">
+            <Value>=Parameters!OrgId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Author>Scott</Author>
+  <Code>Public Shared Function SupressNegative(ByVal value As Decimal)
+
+	If value &lt; 0 Then
+		SupressNegative = ""
+	Else
+		SupressNegative =  FormatCurrency(value, 2)
+	End If
+
+End Function
+
+Shared offset as Integer
+Shared currentgroup as Object
+
+Public Function GetGroupPageNumber(group as Object, pagenumber as Integer) as Object
+  If (currentgroup = String.Empty)
+	currentgroup = group
+  End If
+  If Not (group = currentgroup)
+   offset = pagenumber - 1
+   currentgroup = group  
+  End If
+
+  IF (pagenumber - offset &gt; 1)
+	return "Page " +  Format(pagenumber - offset)
+  ELSE
+	return " "
+  End If  
+End Function
+</Code>
+  <Width>11.125in</Width>
+  <Body>
+    <ReportItems>
+      <List Name="lstGivingUnit">
+        <Left>0.0625in</Left>
+        <DataSetName>ContributionFunds</DataSetName>
+        <ReportItems>
+          <Textbox Name="textbox1">
+            <rd:DefaultName>textbox1</rd:DefaultName>
+            <Top>4.4375in</Top>
+            <Width>7.5625in</Width>
+            <Style>
+              <BorderStyle>
+                <Default>Solid</Default>
+              </BorderStyle>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>7</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>0.125in</Left>
+            <Height>3.3125in</Height>
+            <Value>Custom Text Here</Value>
+          </Textbox>
+          <Textbox Name="street_address_1_1">
+            <rd:DefaultName>street_address_1_1</rd:DefaultName>
+            <Top>0.5in</Top>
+            <Width>2.6875in</Width>
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>6</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>0.125in</Left>
+            <Height>0.8125in</Height>
+            <Value>=First(Fields!organization_name.Value, "Organization") +
+chr(10) +
+First(Fields!street_address_1.Value, "Organization") +
+chr(10) +
+First(Fields!street_address_2.Value, "Organization") +
+chr(10) +
+First(Fields!city.Value, "Organization") +
+", " +
+First(Fields!state.Value, "Organization") +
+" " +
+First(Fields!postal_code.Value, "Organization")</Value>
+          </Textbox>
+          <Textbox Name="textbox11">
+            <rd:DefaultName>textbox11</rd:DefaultName>
+            <Top>2.3125in</Top>
+            <Width>2.6875in</Width>
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>5</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>0.125in</Left>
+            <Height>1.3125in</Height>
+            <Value>=Fields!first_name.Value + " " + Fields!last_name.Value +
+Chr(10) +
+Fields!street_address_1.Value +
+Chr(10) +
+Fields!street_address_2.Value +
+Chr(10) +
+Fields!city.Value + "," + " " + Fields!state.Value + " " + Fields!postal_code.Value</Value>
+          </Textbox>
+          <Textbox Name="textbox10">
+            <rd:DefaultName>textbox10</rd:DefaultName>
+            <Top>1.0625in</Top>
+            <Width>2.875in</Width>
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>4</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>4in</Left>
+            <Height>0.4375in</Height>
+            <Value>="Contributions through " &amp; Format(Parameters!ToDate.Value, "MMMM dd, yyyy")</Value>
+          </Textbox>
+          <Textbox Name="textbox5">
+            <rd:DefaultName>textbox5</rd:DefaultName>
+            <Top>0.625in</Top>
+            <Width>2.875in</Width>
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>3</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>4in</Left>
+            <Height>0.375in</Height>
+            <Value>="Envelope Number: " &amp; First(Fields!envelope_number.Value)</Value>
+          </Textbox>
+          <Textbox Name="GivingStatement">
+            <Top>0.1875in</Top>
+            <Width>2.875in</Width>
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>2</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Left>4in</Left>
+            <Height>0.375in</Height>
+            <Value>=Format(Parameters!ToDate.Value,"yyyy") + " Giving Statement"</Value>
+          </Textbox>
+          <Table Name="table1">
+            <ZIndex>1</ZIndex>
+            <Top>3.5in</Top>
+            <Width>3.96875in</Width>
+            <Details>
+              <TableRows>
+                <TableRow>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="fund_name">
+                          <rd:DefaultName>fund_name</rd:DefaultName>
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <ZIndex>1</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value>=Fields!fund_name.Value</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="amount">
+                          <rd:DefaultName>amount</rd:DefaultName>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <CanGrow>true</CanGrow>
+                          <Value>=FormatCurrency(Sum(Fields!amount.Value),2)</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                  <Height>0.25in</Height>
+                </TableRow>
+              </TableRows>
+              <Grouping Name="fundGroup">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!fund_id.Value</GroupExpression>
+                </GroupExpressions>
+                <Filters>
+                  <Filter>
+                    <FilterExpression>=Format(Fields!amount.Value)</FilterExpression>
+                    <Operator>NotEqual</Operator>
+                    <FilterValues>
+                      <FilterValue>0.0000</FilterValue>
+                    </FilterValues>
+                  </Filter>
+                </Filters>
+              </Grouping>
+            </Details>
+            <Header>
+              <TableRows>
+                <TableRow>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox12">
+                          <rd:DefaultName>textbox12</rd:DefaultName>
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <ZIndex>5</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox2">
+                          <rd:DefaultName>textbox2</rd:DefaultName>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <ZIndex>4</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value />
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                  <Height>0.25in</Height>
+                </TableRow>
+              </TableRows>
+            </Header>
+            <TableColumns>
+              <TableColumn>
+                <Width>1.66213in</Width>
+              </TableColumn>
+              <TableColumn>
+                <Width>2.30662in</Width>
+              </TableColumn>
+            </TableColumns>
+            <Height>0.75in</Height>
+            <Footer>
+              <TableRows>
+                <TableRow>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="textbox7">
+                          <rd:DefaultName>textbox7</rd:DefaultName>
+                          <Style>
+                            <BorderStyle>
+                              <Top>Dashed</Top>
+                            </BorderStyle>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <ZIndex>3</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value>Total Contributions</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="amount_1">
+                          <rd:DefaultName>amount_1</rd:DefaultName>
+                          <Style>
+                            <BorderStyle>
+                              <Top>Dashed</Top>
+                            </BorderStyle>
+                            <TextAlign>Right</TextAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                          <ZIndex>2</ZIndex>
+                          <CanGrow>true</CanGrow>
+                          <Value>=FormatCurrency(Sum(Fields!amount.Value),2)</Value>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                  <Height>0.25in</Height>
+                </TableRow>
+              </TableRows>
+            </Footer>
+            <Left>1.875in</Left>
+          </Table>
+          <Textbox Name="organization_url">
+            <rd:DefaultName>organization_url</rd:DefaultName>
+            <Visibility>
+              <Hidden>true</Hidden>
+            </Visibility>
+            <Top>8.0625in</Top>
+            <Width>1in</Width>
+            <Style>
+              <TextAlign>Center</TextAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <CanGrow>true</CanGrow>
+            <Left>0.125in</Left>
+            <Height>0.25in</Height>
+            <Value>=First(Fields!organization_url.Value, "Organization")</Value>
+          </Textbox>
+        </ReportItems>
+        <Top>0.0625in</Top>
+        <Grouping Name="list1_Details_Group">
+          <GroupExpressions>
+            <GroupExpression>=Fields!giving_unit_id.Value</GroupExpression>
+          </GroupExpressions>
+          <PageBreakAtEnd>true</PageBreakAtEnd>
+        </Grouping>
+      </List>
+    </ReportItems>
+    <Height>8.875in</Height>
+  </Body>
+  <Language>en-US</Language>
+  <PageFooter>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <ReportItems>
+      <Textbox Name="orgurl">
+        <Top>0.1875in</Top>
+        <Width>4.875in</Width>
+        <Style>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Left>1.9375in</Left>
+        <Value>=ReportItems!organization_url.Value</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>0.4375in</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageFooter>
+  <TopMargin>0.5in</TopMargin>
+</Report>

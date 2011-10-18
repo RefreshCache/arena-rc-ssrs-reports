@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="ArenaDB">
+      <rd:DataSourceID>59763b35-b0b8-4660-ac4d-4c49fccd67be</rd:DataSourceID>
+      <DataSourceReference>ArenaDB</DataSourceReference>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <ReportParameters>
+    <ReportParameter Name="startDate">
+      <DataType>DateTime</DataType>
+      <Prompt>Start Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="endDate">
+      <DataType>DateTime</DataType>
+      <Prompt>End Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="funds">
+      <DataType>Integer</DataType>
+      <Prompt>Funds</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>FundSource</DataSetName>
+          <ValueField>fund_id</ValueField>
+          <LabelField>fund_name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>1in</RightMargin>
+  <LeftMargin>1in</LeftMargin>
+  <BottomMargin>1in</BottomMargin>
+  <rd:ReportID>78eb9156-6c98-497c-97e2-2eafc2231ab4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="MainSource">
+      <Fields>
+        <Field Name="contribution_id">
+          <DataField>contribution_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="contribution_date">
+          <DataField>contribution_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="currency_type">
+          <DataField>currency_type</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="currency_type_luid">
+          <DataField>currency_type_luid</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="currency_type_order">
+          <DataField>currency_type_order</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="fund_id">
+          <DataField>fund_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="amount">
+          <DataField>amount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="fund_name">
+          <DataField>fund_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="fund_order">
+          <DataField>fund_order</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <CommandText>SELECT
+cc.contribution_id
+,cc.contribution_date
+,clcc.lookup_value AS currency_type
+,clcc.lookup_id AS currency_type_luid
+,clcc.lookup_order AS currency_type_order
+,ccf.fund_id
+,ccf.amount
+,cf.fund_name
+,cf.fund_order
+FROM
+ctrb_contribution_fund AS ccf
+JOIN ctrb_contribution AS cc ON cc.contribution_id=ccf.contribution_id
+JOIN ctrb_fund AS cf ON cf.fund_id=ccf.fund_id
+JOIN core_lookup AS clcc ON clcc.lookup_id=cc.currency_type_luid
+WHERE cc.contribution_date BETWEEN @startDate AND @endDate
+AND cf.fund_id IN (@funds)</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@startDate">
+            <Value>=Parameters!startDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@endDate">
+            <Value>=Parameters!endDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@funds">
+            <Value>=Parameters!funds.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="FundSource">
+      <Fields>
+        <Field Name="fund_id">
+          <DataField>fund_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="fund_name">
+          <DataField>fund_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <CommandText>SELECT fund_id, fund_name 
+FROM ctrb_fund 
+WHERE active='TRUE'</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Code>Dim Public bgColor As Integer = 0
+
+Public Function alternateColor As Integer
+If bgColor = 0
+bgColor = 1
+return bgColor
+else
+bgColor = 0
+return bgColor
+end if
+End Function</Code>
+  <Width>6.5in</Width>
+  <Body>
+    <ReportItems>
+      <List Name="list1">
+        <Left>0.125in</Left>
+        <DataSetName>MainSource</DataSetName>
+        <ReportItems>
+          <Textbox Name="textbox5">
+            <rd:DefaultName>textbox5</rd:DefaultName>
+            <Top>0.25in</Top>
+            <Width>3.5in</Width>
+            <Style>
+              <FontWeight>700</FontWeight>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>2</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Height>0.25in</Height>
+            <Value>="For "+Parameters!startDate.Value+" - "+Parameters!endDate.Value</Value>
+          </Textbox>
+          <Textbox Name="textbox4">
+            <rd:DefaultName>textbox4</rd:DefaultName>
+            <Width>3.5in</Width>
+            <Style>
+              <FontSize>12pt</FontSize>
+              <FontWeight>700</FontWeight>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+            <ZIndex>1</ZIndex>
+            <CanGrow>true</CanGrow>
+            <Height>0.25in</Height>
+            <Value>Fund Summary</Value>
+          </Textbox>
+          <Matrix Name="matrix1">
+            <MatrixColumns>
+              <MatrixColumn>
+                <Width>1.25in</Width>
+              </MatrixColumn>
+            </MatrixColumns>
+            <RowGroupings>
+              <RowGrouping>
+                <Width>1.625in</Width>
+                <DynamicRows>
+                  <Grouping Name="matrix1_fund_name">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!fund_id.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Grouping>
+                  <Sorting>
+                    <SortBy>
+                      <SortExpression>=Fields!fund_order.Value</SortExpression>
+                      <Direction>Ascending</Direction>
+                    </SortBy>
+                  </Sorting>
+                  <Subtotal>
+                    <ReportItems>
+                      <Textbox Name="textbox3">
+                        <rd:DefaultName>textbox3</rd:DefaultName>
+                        <Style>
+                          <FontWeight>700</FontWeight>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                        <CanGrow>true</CanGrow>
+                        <Value>Total</Value>
+                      </Textbox>
+                    </ReportItems>
+                    <Style>
+                      <BackgroundColor>White</BackgroundColor>
+                    </Style>
+                  </Subtotal>
+                  <ReportItems>
+                    <Textbox Name="fund_name">
+                      <rd:DefaultName>fund_name</rd:DefaultName>
+                      <Style>
+                        <BackgroundColor>=IIF(Code.alternateColor(), "Gainsboro","White")</BackgroundColor>
+                        <FontWeight>700</FontWeight>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>2</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!fund_name.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </DynamicRows>
+              </RowGrouping>
+            </RowGroupings>
+            <Top>0.625in</Top>
+            <ColumnGroupings>
+              <ColumnGrouping>
+                <Height>0.25in</Height>
+                <DynamicColumns>
+                  <Grouping Name="matrix1_currency_type">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!currency_type_luid.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Grouping>
+                  <Sorting>
+                    <SortBy>
+                      <SortExpression>=Fields!currency_type_order.Value</SortExpression>
+                      <Direction>Ascending</Direction>
+                    </SortBy>
+                  </Sorting>
+                  <Subtotal>
+                    <ReportItems>
+                      <Textbox Name="textbox2">
+                        <rd:DefaultName>textbox2</rd:DefaultName>
+                        <Style>
+                          <FontWeight>700</FontWeight>
+                          <TextAlign>Right</TextAlign>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                        <ZIndex>3</ZIndex>
+                        <CanGrow>true</CanGrow>
+                        <Value>Total</Value>
+                      </Textbox>
+                    </ReportItems>
+                  </Subtotal>
+                  <ReportItems>
+                    <Textbox Name="currency_type">
+                      <rd:DefaultName>currency_type</rd:DefaultName>
+                      <Style>
+                        <FontWeight>700</FontWeight>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>4</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!currency_type.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </DynamicColumns>
+              </ColumnGrouping>
+            </ColumnGroupings>
+            <Width>4.125in</Width>
+            <Corner>
+              <ReportItems>
+                <Textbox Name="textbox1">
+                  <rd:DefaultName>textbox1</rd:DefaultName>
+                  <Style>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                  <ZIndex>5</ZIndex>
+                  <CanGrow>true</CanGrow>
+                  <Value />
+                </Textbox>
+              </ReportItems>
+            </Corner>
+            <MatrixRows>
+              <MatrixRow>
+                <Height>0.25in</Height>
+                <MatrixCells>
+                  <MatrixCell>
+                    <ReportItems>
+                      <Textbox Name="amount">
+                        <rd:DefaultName>amount</rd:DefaultName>
+                        <Style>
+                          <BackgroundColor>=IIF(Code.bgColor=1, "Gainsboro","White")</BackgroundColor>
+                          <TextAlign>Right</TextAlign>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                        <ZIndex>1</ZIndex>
+                        <CanGrow>true</CanGrow>
+                        <Value>=iif(InScope("matrix1_currency_type"),
+	iif(InScope("matrix1_fund_name"),
+		FormatNumber(Sum(Fields!amount.Value),2),
+		FormatCurrency(Sum(Fields!amount.Value),2)),
+	iif(InScope("matrix1_fund_name"),
+		FormatCurrency(Sum(Fields!amount.Value),2),
+		FormatCurrency(Sum(Fields!amount.Value),2)))</Value>
+                      </Textbox>
+                    </ReportItems>
+                  </MatrixCell>
+                </MatrixCells>
+              </MatrixRow>
+            </MatrixRows>
+            <Height>0.75in</Height>
+          </Matrix>
+        </ReportItems>
+        <Width>6.25in</Width>
+        <Grouping Name="list1_Details_Group">
+          <GroupExpressions>
+            <GroupExpression>1</GroupExpression>
+          </GroupExpressions>
+        </Grouping>
+      </List>
+    </ReportItems>
+    <Height>2in</Height>
+  </Body>
+  <Language>en-US</Language>
+  <TopMargin>1in</TopMargin>
+</Report>
