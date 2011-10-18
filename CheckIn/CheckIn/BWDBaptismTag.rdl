@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="ArenaDB">
+      <DataSourceReference>ArenaDB</DataSourceReference>
+      <rd:DataSourceID>dc84be98-191d-4d0b-9bce-15197d8a068a</rd:DataSourceID>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Info">
+      <Fields>
+        <Field Name="nick_name">
+          <DataField>nick_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="first_name">
+          <DataField>first_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="middle_name">
+          <DataField>middle_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="last_name">
+          <DataField>last_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="full_name_distinguished">
+          <DataField>full_name_distinguished</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="full_name_nickname">
+          <DataField>full_name_nickname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="birth_date">
+          <DataField>birth_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="gender">
+          <DataField>gender</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="person_notes">
+          <DataField>person_notes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="anniversary_date">
+          <DataField>anniversary_date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="membership_status">
+          <DataField>membership_status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="medical_information">
+          <DataField>medical_information</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="photo">
+          <DataField>photo</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="photo_mime_type">
+          <DataField>photo_mime_type</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="security_code">
+          <DataField>security_code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="child_barcode">
+          <DataField>child_barcode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="receipt_barcode">
+          <DataField>receipt_barcode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="check_in_time">
+          <DataField>check_in_time</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="check_out_time">
+          <DataField>check_out_time</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="pager">
+          <DataField>pager</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="attendance_notes">
+          <DataField>attendance_notes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="occurrence_name">
+          <DataField>occurrence_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="occurrence_description">
+          <DataField>occurrence_description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="occurrence_start_time">
+          <DataField>occurrence_start_time</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="occurrence_end_time">
+          <DataField>occurrence_end_time</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="check_in_start">
+          <DataField>check_in_start</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="check_in_end">
+          <DataField>check_in_end</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="membership_required">
+          <DataField>membership_required</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="occurrence_type">
+          <DataField>occurrence_type</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="min_age">
+          <DataField>min_age</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="max_age">
+          <DataField>max_age</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="full_location_name">
+          <DataField>full_location_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="location_id">
+          <DataField>location_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="location_name">
+          <DataField>location_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="building_name">
+          <DataField>building_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tag_name">
+          <DataField>tag_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tag_desc">
+          <DataField>tag_desc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tag_notes">
+          <DataField>tag_notes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>core_sp_get_occurrence_attendance_label</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@OccurrenceAttendanceID">
+            <Value>=Parameters!OccurrenceAttendanceID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+    <DataSet Name="Attributes">
+      <Fields>
+        <Field Name="attribute_name">
+          <DataField>attribute_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="attribute_name_first_letter">
+          <DataField>attribute_name_first_letter</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="person_id">
+          <DataField>person_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="attribute_id">
+          <DataField>attribute_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="int_value">
+          <DataField>int_value</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="varchar_value">
+          <DataField>varchar_value</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="datetime_value">
+          <DataField>datetime_value</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="decimal_value">
+          <DataField>decimal_value</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>core_sp_get_occurrence_attendance_label_attributes</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@OccurrenceAttendanceID">
+            <Value>=Parameters!OccurrenceAttendanceID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@AttributeGroupName">
+            <Value>=Parameters!AttributeGroupName.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+    <DataSet Name="Baptized_By">
+      <Fields>
+        <Field Name="selected_value">
+          <DataField>selected_value</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="person_id">
+          <DataField>person_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <CommandText>SELECT        p.person_id, cpmfv.selected_value
+FROM            core_person AS p INNER JOIN
+                         core_occurrence_attendance AS oa ON oa.person_id = p.person_id LEFT OUTER JOIN
+                         core_profile_member_field_value AS cpmfv ON oa.person_id = cpmfv.person_id AND cpmfv.custom_field_id = 455
+WHERE        (oa.occurrence_attendance_id = @OccurrenceAttendanceID)</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@OccurrenceAttendanceID">
+            <Value>=Parameters!OccurrenceAttendanceID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Textbox Name="last_name">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!last_name.Value, "Info")</Value>
+                <Style>
+                  <FontSize>24pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>last_name</rd:DefaultName>
+        <Top>0.62222in</Top>
+        <Left>0.2in</Left>
+        <Height>0.39583in</Height>
+        <Width>2.75in</Width>
+        <Style>
+          <Border />
+          <VerticalAlign>Top</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Image Name="bwdlogoonly">
+        <Source>Embedded</Source>
+        <Value>bwdlogoonly</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>1.525in</Top>
+        <Left>2.48125in</Left>
+        <Height>0.425in</Height>
+        <Width>0.46875in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Textbox Name="first_name">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!nick_name.Value, "Info")</Value>
+                <Style>
+                  <FontSize>36pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>first_name</rd:DefaultName>
+        <Top>0.05in</Top>
+        <Left>0.05in</Left>
+        <Height>0.57222in</Height>
+        <Width>2.9in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border />
+          <VerticalAlign>Bottom</VerticalAlign>
+        </Style>
+      </Textbox>
+      <Textbox Name="textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!pager.Value, "Info")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <Top>1.775in</Top>
+        <Left>0.05in</Left>
+        <Height>0.125in</Height>
+        <Width>2.08056in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+        </Style>
+      </Textbox>
+      <Textbox Name="occurrence_name">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!occurrence_name.Value &amp; "  " &amp; String.Format("{0:h:mm tt}", Fields!occurrence_start_time.Value), "Info")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>occurrence_name</rd:DefaultName>
+        <Top>1.65in</Top>
+        <Left>0.05in</Left>
+        <Height>0.125in</Height>
+        <Width>2.08056in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+        </Style>
+      </Textbox>
+      <Textbox Name="full_location_name">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!full_location_name.Value, "Info")</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>full_location_name</rd:DefaultName>
+        <Top>1.525in</Top>
+        <Left>0.05in</Left>
+        <Height>0.125in</Height>
+        <Width>2.08056in</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>="Baptized By: " + First(Fields!selected_value.Value, "Baptized_By")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>1.03195in</Top>
+        <Left>0.05in</Left>
+        <Height>0.42361in</Height>
+        <Width>2.9in</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>2in</Height>
+    <Style />
+  </Body>
+  <ReportParameters>
+    <ReportParameter Name="OccurrenceAttendanceID">
+      <DataType>Integer</DataType>
+      <Prompt>OccurrenceAttendanceID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AttributeGroupName">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Check-In</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AttributeGroupName</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Width>3in</Width>
+  <Page>
+    <PageHeight>2in</PageHeight>
+    <PageWidth>3in</PageWidth>
+    <InteractiveHeight>2in</InteractiveHeight>
+    <InteractiveWidth>3in</InteractiveWidth>
+    <Style />
+  </Page>
+  <EmbeddedImages>
+    <EmbeddedImage Name="bwdlogoonly">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportID>1de8a3e2-7b7a-4c12-a6f1-a46c8e5c421e</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+</Report>

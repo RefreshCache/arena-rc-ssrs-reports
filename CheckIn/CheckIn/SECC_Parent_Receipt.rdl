@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Textbox Name="textbox2">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Code.SecurityCodes(First(Fields!security_codes.Value, "Info"))</Value>
+                <Style>
+                  <FontFamily>Courier New</FontFamily>
+                  <FontSize>13pt</FontSize>
+                  <FontWeight>ExtraBold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+              <LineHeight>16pt</LineHeight>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Top>0.36792in</Top>
+        <Left>2.01389in</Left>
+        <Height>1.48208in</Height>
+        <Width>1.98611in</Width>
+        <Style />
+      </Textbox>
+      <Textbox Name="textbox1">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Code.SecurityCodes(First(Fields!security_codes.Value, "Info"))</Value>
+                <Style>
+                  <FontFamily>Courier New</FontFamily>
+                  <FontSize>13pt</FontSize>
+                  <FontWeight>ExtraBold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+              <LineHeight>16pt</LineHeight>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Top>0.36792in</Top>
+        <Height>1.48208in</Height>
+        <Width>1.98611in</Width>
+        <ZIndex>1</ZIndex>
+        <Style />
+      </Textbox>
+      <Textbox Name="textbox4">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>="Retain receipt for child"+vbCrLf+"pickup on " + WeekdayName(Weekday(Now()),True)+", "+Month(Now()).ToString+"/"+Day(Now()).ToString</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>textbox4</rd:DefaultName>
+        <Height>0.36792in</Height>
+        <Width>1.98611in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border />
+          <VerticalAlign>Bottom</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="line1">
+        <Top>0.05in</Top>
+        <Left>2in</Left>
+        <Height>1.85in</Height>
+        <Width>0in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>Dashed</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="textbox5">
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>="Retain receipt for child"+vbCrLf+"pickup on " + WeekdayName(Weekday(Now()),True)+", "+Month(Now()).ToString+"/"+Day(Now()).ToString</Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>textbox4</rd:DefaultName>
+        <Left>2.01389in</Left>
+        <Height>0.36792in</Height>
+        <Width>1.98611in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border />
+          <VerticalAlign>Bottom</VerticalAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <Height>2.12in</Height>
+    <Style />
+  </Body>
+  <Width>4in</Width>
+  <Page>
+    <PageHeight>2.12in</PageHeight>
+    <PageWidth>4in</PageWidth>
+    <InteractiveHeight>2.12in</InteractiveHeight>
+    <InteractiveWidth>4in</InteractiveWidth>
+    <ColumnSpacing>0in</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ArenaDB">
+      <DataSourceReference>ArenaDB</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>dc84be98-191d-4d0b-9bce-15197d8a068a</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Info">
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@OccurrenceAttendanceID">
+            <Value>=Parameters!OccurrenceAttendanceID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>cust_SECC_checkin_sp_get_label_parent</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="security_codes">
+          <DataField>SecurityCodes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="OccurrenceAttendanceID">
+      <DataType>Integer</DataType>
+      <Prompt>OccurrenceAttendanceID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AttributeGroupName">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Check-In</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AttributeGroupName</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>    Public Function SecurityCodes(ByVal Value As String) As String
+
+        Dim RetValue As String = ""
+
+        If Not String.IsNullOrEmpty(Value) Then 
+
+        Dim codes() As String = Value.Split(",")
+        Dim added As New System.Collections.ArrayList()
+        Dim i As Integer
+
+        For i = 0 To codes.Length - 1
+            If Not added.Contains(codes(i)) Then
+
+                added.Add(codes(i))
+
+                If 1=1  Then
+                    RetValue += codes(i)
+                    RetValue += vbCrLf
+                Else
+                    RetValue += " " + codes(i)
+
+                    If codes(i).Length = 7 Then
+                        RetValue += "  "
+                    Else
+                        RetValue += " "
+                    End If
+                End If
+            End If
+        Next i
+ 
+        Else
+
+        RetValue = ""
+
+        End If
+
+        Return RetValue
+    End Function</Code>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>1de8a3e2-7b7a-4c12-a6f1-a46c8e5c421e</rd:ReportID>
+</Report>
