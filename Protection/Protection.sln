@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Protection", "Protection\Protection.rptproj", "{40922F65-D637-487C-9AA3-D4B892EC878A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40922F65-D637-487C-9AA3-D4B892EC878A}.Debug|Default.ActiveCfg = Debug
+		{40922F65-D637-487C-9AA3-D4B892EC878A}.Debug|Default.Build.0 = DebugLocal
+		{40922F65-D637-487C-9AA3-D4B892EC878A}.Debug|Default.Deploy.0 = DebugLocal
+		{40922F65-D637-487C-9AA3-D4B892EC878A}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{40922F65-D637-487C-9AA3-D4B892EC878A}.DebugLocal|Default.Build.0 = DebugLocal
+		{40922F65-D637-487C-9AA3-D4B892EC878A}.Release|Default.ActiveCfg = Release
+		{40922F65-D637-487C-9AA3-D4B892EC878A}.Release|Default.Build.0 = Release
+		{40922F65-D637-487C-9AA3-D4B892EC878A}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
