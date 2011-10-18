@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="table1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1.625in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.25in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.25in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="last_name">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=First(Fields!last_name.Value)</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>last_name</rd:DefaultName>
+                      <ZIndex>2</ZIndex>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="first_name">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=First(Fields!first_name.Value)</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>first_name</rd:DefaultName>
+                      <ZIndex>1</ZIndex>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Phone">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=First(Fields!Phone.Value)</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Phone</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="table1_Group1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!person_id.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+              </TablixMembers>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>RM</DataSetName>
+        <Height>0.25in</Height>
+        <Width>4.125in</Width>
+        <Style />
+      </Tablix>
+    </ReportItems>
+    <Height>0.25in</Height>
+    <Style />
+  </Body>
+  <Width>10.5in</Width>
+  <Page>
+    <PageFooter>
+      <Height>0.125in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <Style />
+    </PageFooter>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <InteractiveHeight>11in</InteractiveHeight>
+    <InteractiveWidth>8.5in</InteractiveWidth>
+    <LeftMargin>0.25in</LeftMargin>
+    <RightMargin>0.25in</RightMargin>
+    <TopMargin>0.75in</TopMargin>
+    <BottomMargin>0.25in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ArenaDB">
+      <DataSourceReference>ArenaDB</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>d49d68c9-ee6e-4216-ba50-254daa17b989</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="RM">
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@tag">
+            <Value>=Parameters!tag.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@status">
+            <Value>=Parameters!Status.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT     p.last_name + ', ' + p.nick_name  AS 'name'
+--,  (CASE WHEN hp.unlisted = 0 THEN hp.phone_number ELSE 'Unlisted' END) AS 'Home Phone'
+, ca.street_address_1+ ' '+ca.street_address_2+' '+ca.city+','+' '+ca.state+'  '+ca.postal_code AS Address
+, p.first_name
+--,(CASE WHEN LEFT (hp.phone_number,5) &lt;&gt; '(717)'THEN hp.phone_number 
+--ELSE Right (hp.phone_number ,8) END) AS Phone
+,hp.phone_number AS Phone
+, p.last_name
+, hp.unlisted
+, cpro.profile_name
+, cpem.email
+, p.person_id
+FROM         core_person AS p LEFT OUTER JOIN
+                      core_person_phone AS hp ON hp.person_id = p.person_id AND hp.phone_luid = 276 LEFT OUTER JOIN
+                      core_person_address AS pa ON pa.person_id = p.person_id LEFT OUTER JOIN
+                      core_address AS ca ON ca.address_id = pa.address_id 
+                      LEFT OUTER JOIN core_profile_member AS cpm ON cpm.person_id= p.person_id 
+                      LEFT OUTER JOIN core_profile AS cpro ON cpro.profile_id=cpm.profile_id 
+                      Left OUTER JOIN dbo.core_person_email AS cpem on cpem.person_id = p.person_id and cpem.email_order=0   
+
+WHERE cpm.profile_id IN (@tag)
+AND cpm.status_luid IN (@status)
+ORDER BY p.last_name, p.first_name</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="name">
+          <DataField>name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="first_name">
+          <DataField>first_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Phone">
+          <DataField>Phone</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="last_name">
+          <DataField>last_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="unlisted">
+          <DataField>unlisted</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="profile_name">
+          <DataField>profile_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="email">
+          <DataField>email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="person_id">
+          <DataField>person_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="TypeSource">
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <CommandText>SELECT DISTINCT profile_type, (CASE WHEN cp.profile_type = 1 THEN ( CAST
+                          ((SELECT     [value]
+                              FROM         orgn_organization_setting
+                              WHERE     [key] = 'ministryprofiletitle') AS VARCHAR)) WHEN cp.profile_type = 2 THEN ( CAST
+                          ((SELECT     [value]
+                              FROM         orgn_organization_setting
+                              WHERE     [key] = 'servingprofiletitle') AS VARCHAR)) WHEN cp.profile_type = 4 THEN ( CAST
+                          ((SELECT     [value]
+                              FROM         orgn_organization_setting
+                              WHERE     [key] = 'eventprofiletitle') AS VARCHAR)) END) AS profile_type_name
+FROM         core_profile AS cp
+WHERE profile_type &lt;&gt; 0</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="profile_type">
+          <DataField>profile_type</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="profile_type_name">
+          <DataField>profile_type_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="TagSource">
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@type">
+            <Value>=Parameters!type.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>with profiletree (
+				  Root
+				, Parent
+				, Name
+				, Level
+				, ID
+				, Branch)  as
+(select 
+	profiles.profile_name as Root
+  , cast('' as varchar(100)) as Parent
+  , profiles.profile_name as Name
+  , cast('0' as int) as Level
+  , profiles.profile_id as ID
+  , cast(profiles.profile_id as varchar) as Branch
+ from 
+	core_profile as profiles 
+ where 
+	profiles.parent_profile_id is null
+                AND profiles.profile_type IN (@type)
+
+union all
+ select  
+	tree.Root
+  , tree.Name as Parent
+  , CONVERT(VARCHAR(100),(replicate('-',tree.level+1))+profiles.profile_name) as Name
+  , tree.Level + 1
+  , profiles.profile_id
+  , cast(tree.Branch + '.' + cast(profiles.profile_id as varchar) as varchar) 
+ from 
+	core_profile as profiles 
+	inner join profiletree as tree 
+		on profiles.parent_profile_id =  tree.id)
+select 
+Name
+  , ID AS profile_id
+
+from 
+	profiletree
+order by 
+	Root
+  , branch</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="profile_id">
+          <DataField>profile_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="StatusSource">
+      <Query>
+        <DataSourceName>ArenaDB</DataSourceName>
+        <CommandText>SELECT
+lookup_id
+, lookup_value
+FROM
+core_lookup
+WHERE
+lookup_type_id=35</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="lookup_id">
+          <DataField>lookup_id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="lookup_value">
+          <DataField>lookup_value</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="type">
+      <DataType>Integer</DataType>
+      <Prompt>Tag Type</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>TypeSource</DataSetName>
+          <ValueField>profile_type</ValueField>
+          <LabelField>profile_type_name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="tag">
+      <DataType>Integer</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Tag</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>TagSource</DataSetName>
+          <ValueField>profile_id</ValueField>
+          <LabelField>Name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="Status">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Tag Member Status</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>StatusSource</DataSetName>
+          <ValueField>lookup_id</ValueField>
+          <LabelField>lookup_value</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>f45a6142-f94c-433a-b808-18284414e855</rd:ReportID>
+</Report>

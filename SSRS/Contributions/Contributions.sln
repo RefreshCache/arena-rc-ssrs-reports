@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Contributions", "Contributions\Contributions.rptproj", "{7FE4FE25-2F2C-4BEF-8E5D-5AD94C5E5BBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FE4FE25-2F2C-4BEF-8E5D-5AD94C5E5BBC}.Debug|Default.ActiveCfg = Debug
+		{7FE4FE25-2F2C-4BEF-8E5D-5AD94C5E5BBC}.Debug|Default.Build.0 = DebugLocal
+		{7FE4FE25-2F2C-4BEF-8E5D-5AD94C5E5BBC}.Debug|Default.Deploy.0 = DebugLocal
+		{7FE4FE25-2F2C-4BEF-8E5D-5AD94C5E5BBC}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{7FE4FE25-2F2C-4BEF-8E5D-5AD94C5E5BBC}.DebugLocal|Default.Build.0 = DebugLocal
+		{7FE4FE25-2F2C-4BEF-8E5D-5AD94C5E5BBC}.Release|Default.ActiveCfg = Release
+		{7FE4FE25-2F2C-4BEF-8E5D-5AD94C5E5BBC}.Release|Default.Build.0 = Release
+		{7FE4FE25-2F2C-4BEF-8E5D-5AD94C5E5BBC}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

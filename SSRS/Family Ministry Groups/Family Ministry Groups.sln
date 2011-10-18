@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Family Ministry Groups", "Family Ministry Groups\Family Ministry Groups.rptproj", "{A3AD97F7-E967-45DB-A1E1-C518AE953400}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3AD97F7-E967-45DB-A1E1-C518AE953400}.Debug|Default.ActiveCfg = Debug
+		{A3AD97F7-E967-45DB-A1E1-C518AE953400}.Debug|Default.Build.0 = DebugLocal
+		{A3AD97F7-E967-45DB-A1E1-C518AE953400}.Debug|Default.Deploy.0 = DebugLocal
+		{A3AD97F7-E967-45DB-A1E1-C518AE953400}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{A3AD97F7-E967-45DB-A1E1-C518AE953400}.DebugLocal|Default.Build.0 = DebugLocal
+		{A3AD97F7-E967-45DB-A1E1-C518AE953400}.Release|Default.ActiveCfg = Release
+		{A3AD97F7-E967-45DB-A1E1-C518AE953400}.Release|Default.Build.0 = Release
+		{A3AD97F7-E967-45DB-A1E1-C518AE953400}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
